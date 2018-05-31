@@ -4,43 +4,35 @@ import javax.swing.*;
 import java.awt.*;
 
 
-
 /**
  * Created by marcos on 02/11/16.
  */
 public class About extends JFrame{
 
-     JPanel contentPane;
-     JPanel layout;
+    private JPanel contentPane;
+    private JPanel layout;
 
-     JPanel panel_title;
+    private JPanel panel_title;
 
-        JPanel panel_p1;
-        JPanel panel_p2;
-        JPanel panel_p3;
+    private   JPanel panel_p1;
+    private   JPanel panel_p2;
+    private  JPanel panel_p3;
 
-    JLabel lb0;
-    JLabel lb1;
-    JLabel lb2;
+    private JLabel lb0;
+    private JLabel lb1;
+    private JLabel lb2;
 
-    JLabel lb3;
-    JLabel lb4;
+    private JLabel lb3;
+    private JLabel lb4;
 
-    JLabel lb5;
-    JLabel lb6;
+    private JLabel lb5;
+    private JLabel lb6;
 
-    ImageIcon img_ic;
+    private ImageIcon img_ic;
 
-    public static final String path_marcos = "../res/Imagens/tabuleiro/About/marcos"+".png";
-    public static final String path_edson = "../res/Imagens/tabuleiro/About/ic_default"+".png";
-    public static final String path_bunda = "../res/Imagens/tabuleiro/About/ic_default"+".png";
-
-    private int SCALE_x;
-    private int SCALE_y;
-
-    private static String autor1 = "MARCOS VINICIUS";
-    private static String autor2 = "EDSON DAMASCENO";
-    private static String autor3 = "ANTONIO JUNIOR";
+    private static final String path_marcos = "../res/Imagens/tabuleiro/About/marcos"+".png";
+    private static final String path_edson = "../res/Imagens/tabuleiro/About/ic_default"+".png";
+    private static final String path_bunda = "../res/Imagens/tabuleiro/About/ic_default"+".png";
 
     private int WIDTH;
     private int HEIGTH;
@@ -60,8 +52,9 @@ public class About extends JFrame{
     private void configureComponets(int width,int heigth){
 
         contentPane.setSize(width,heigth);
-        contentPane.setLayout(null);
-        contentPane.setBackground(new Color(225,225, 220)); //207,207, 207));
+        contentPane.setLayout(new GridLayout(1,1));
+        contentPane.setBackground(new Color(225, 39, 84)); //207,207, 207));
+
 
         int x=15;
         int y=0;
@@ -72,14 +65,14 @@ public class About extends JFrame{
         layout.setBounds(x,y,layout_width,layout_heigth);
         layout.setLayout(null);
         layout.setBorder(BorderFactory.createEtchedBorder());
-        contentPane.add(layout);
+
 
 
 
         /**----Tamanho dos paineis**/
 
-        SCALE_x = 30;
-        SCALE_y = 20;
+        int SCALE_x = 30;
+        int SCALE_y = 20;
 
         int size_w_panel_title = layout.getWidth() - 60;
         int size_h_panel_title = 50;
@@ -91,7 +84,7 @@ public class About extends JFrame{
         lb0.setForeground(new Color(255,255,255));
 
         panel_title.add(lb0);
-        panel_title.setBounds(SCALE_x,SCALE_y,size_w_panel_title,size_h_panel_title);
+        panel_title.setBounds(SCALE_x, SCALE_y,size_w_panel_title,size_h_panel_title);
         panel_title.setBackground(new Color(62,96,207                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ));
         layout.add(panel_title);
 
@@ -100,10 +93,11 @@ public class About extends JFrame{
         //------------------------p1-------------------------//
 
         int x_lb1 = (size_w_panel_title - size_h_panel_title-10);
-        int y_p1 = SCALE_y + panel_title.getHeight()+SCALE_y;
+        int y_p1 = SCALE_y + panel_title.getHeight()+ SCALE_y;
 
         lb1.setBounds(x_lb1,0,size_h_panel_title,size_h_panel_title);
 
+        String autor1 = "MARCOS VINICIUS - Programmmer";
         lb2.setText(autor1);
         lb2.setForeground(new Color(255,255,255));
         lb2.setBounds(10,0,200,size_h_panel_title);
@@ -129,6 +123,7 @@ public class About extends JFrame{
 
         lb3.setBounds(x_lb1,0,size_h_panel_title,size_h_panel_title);
 
+        String autor2 = "EDSON DAMASCENO - Engenheiro";
         lb4.setText(autor2);
         lb4.setForeground(new Color(255,255,255));
         lb4.setBounds(10,0,200,size_h_panel_title);
@@ -155,6 +150,7 @@ public class About extends JFrame{
 
         lb5.setBounds(x_lb1,0,size_h_panel_title,size_h_panel_title);
 
+        String autor3 = "ANTONIO JUNIOR - Fez o café ";
         lb6.setText(autor3);
         lb6.setForeground(new Color(255,255,255));
         lb6.setBounds(10,0,200,size_h_panel_title);
@@ -169,6 +165,9 @@ public class About extends JFrame{
         panel_p3.setBounds(SCALE_x,y_p3,size_w_panel_title,size_h_panel_title);
         panel_p3.setBackground(new Color(62,96,207));
         layout.add(panel_p3);
+
+        contentPane.add(layout);
+
 
 
         //-----------------------------------------------------------------//
@@ -211,13 +210,13 @@ public class About extends JFrame{
         configureComponets(400,300);
 
 
-
         this.setTitle("About");
         this.add(contentPane);
-        this.setResizable(false);
+        //this.setResizable(false);
         this.setSize(contentPane.getWidth(),contentPane.getHeight());
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        this.setBackground(new Color(218, 225, 107));
         showWindows();
 
 

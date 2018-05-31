@@ -13,8 +13,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-
-
 /**
  * Created by marcos on 10/10/16.
  */
@@ -516,10 +514,12 @@ public class Launcher implements ActionListener {
         if(e.getSource() == bt_about){
 
             if(ab == null) {
+                print("Instanciando About() ");
                 ab = new About();
                 ab.showWindows();
             }
             else{
+                print("A bout() ja instanciado Instanciado");
                 ab.showWindows();
                 }
 

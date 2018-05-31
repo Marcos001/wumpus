@@ -1,7 +1,6 @@
 
 package com.nig;
 
-import javazoom.jl.player.Player;
 import com.nig.res.Strings.Strings;
 
 import javax.swing.*;
@@ -43,48 +42,6 @@ public class TocarSom {
     }
 
 
-    private void tocarpulo_mp3() {
-
-
-        if(sound_on){
-
-            String path = System.getProperty("user.dir");
-
-            String pathSound = "/src/res/sounds/pulo.mp3";
-
-            //carregar o arquivo
-
-            String path_pulo = path + pathSound;
-
-            System.out.println("Caminhio : " + path_pulo + " .");
-
-            FileInputStream in;
-
-            try {
-                //Inicializa o FileInputStream com o endereço do arquivo para tocar
-
-                in = new FileInputStream(path_pulo);
-                //Cria uma instancia da classe player passando para ele o InpuStream do arquivo
-                Player p = new Player(in);
-
-                //executa o som
-                p.play();
-
-                System.out.println("Execetando o arquivo....");
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                System.out.println("Erro ao carregar o arquivo. - tentando executar .wav");
-                tocarpuloWav();
-                System.out.println(".wav executado...");
-
-            } catch (Exception erro) {
-                //JavaLayerException e
-                erro.printStackTrace();
-                System.out.println("Erro ao carregar o arquivo Jlayer -- terceiro erro...");
-            }
-
-        }
-    }
 
     public void tocar_pulo(){
 
