@@ -1,6 +1,5 @@
 package com.nig;
 
-import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,6 +9,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by marcos on 29/10/16.
  */
+
 public class Entrada extends JFrame implements ActionListener{
 
     Tabuleiro tb;

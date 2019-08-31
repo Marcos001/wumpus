@@ -30,14 +30,14 @@ public class About extends JFrame{
 
     private ImageIcon img_ic;
 
-    private static final String path_marcos = "../res/Imagens/tabuleiro/About/marcos"+".png";
+    private static final String path_marcos = "../res/Imagens/tabuleiro/About/ic_default_pro"+".png";
     private static final String path_edson = "../res/Imagens/tabuleiro/About/ic_default"+".png";
     private static final String path_bunda = "../res/Imagens/tabuleiro/About/ic_default"+".png";
 
     private int WIDTH;
     private int HEIGTH;
 
-    private  void redimensionarLabel(String res,int largura, int altura){
+    private  void redimensionarLabel(String res, int largura, int altura){
 
         ImageIcon imageIcon = new ImageIcon(getClass().getResource(res)); // load the image to a imageIcon
 
@@ -80,12 +80,13 @@ public class About extends JFrame{
 
 
         lb0.setText("Desenvolvedores");
+        lb0.setFont(new Font("Arial", Font.BOLD,16));
         lb0.setSize(size_w_panel_title,size_h_panel_title);
-        lb0.setForeground(new Color(255,255,255));
+        lb0.setForeground(new Color(74, 74, 78));
 
         panel_title.add(lb0);
         panel_title.setBounds(SCALE_x, SCALE_y,size_w_panel_title,size_h_panel_title);
-        panel_title.setBackground(new Color(62,96,207                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ));
+        panel_title.setBackground(new Color(62,96,207, 0));
         layout.add(panel_title);
 
 
@@ -97,10 +98,10 @@ public class About extends JFrame{
 
         lb1.setBounds(x_lb1,0,size_h_panel_title,size_h_panel_title);
 
-        String autor1 = "MARCOS VINICIUS - Programmmer";
+        String autor1 = "MARCOS VINICIUS - Programador ";
         lb2.setText(autor1);
         lb2.setForeground(new Color(255,255,255));
-        lb2.setBounds(10,0,200,size_h_panel_title);
+        lb2.setBounds(10,0,250,size_h_panel_title);
 
         redimensionarLabel(path_marcos,lb1.getHeight(),lb1.getHeight());
 
@@ -123,10 +124,10 @@ public class About extends JFrame{
 
         lb3.setBounds(x_lb1,0,size_h_panel_title,size_h_panel_title);
 
-        String autor2 = "EDSON DAMASCENO - Engenheiro";
+        String autor2 = "EDSON DAMASCENO - Networking ";
         lb4.setText(autor2);
         lb4.setForeground(new Color(255,255,255));
-        lb4.setBounds(10,0,200,size_h_panel_title);
+        lb4.setBounds(10,0,250, size_h_panel_title);
 
         redimensionarLabel(path_edson,lb1.getHeight(),lb1.getHeight());
 
@@ -150,10 +151,10 @@ public class About extends JFrame{
 
         lb5.setBounds(x_lb1,0,size_h_panel_title,size_h_panel_title);
 
-        String autor3 = "ANTONIO JUNIOR - Fez o café ";
+        String autor3 = "ANTONIO JUNIOR - Networking ";
         lb6.setText(autor3);
         lb6.setForeground(new Color(255,255,255));
-        lb6.setBounds(10,0,200,size_h_panel_title);
+        lb6.setBounds(10,0,250,size_h_panel_title);
 
         redimensionarLabel(path_bunda,lb1.getHeight(),lb1.getHeight());
 
@@ -213,7 +214,7 @@ public class About extends JFrame{
         this.setTitle("About");
         this.add(contentPane);
         //this.setResizable(false);
-        this.setSize(contentPane.getWidth(),contentPane.getHeight());
+        this.setSize(contentPane.getWidth(),contentPane.getHeight()+40);
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setBackground(new Color(218, 225, 107));
@@ -224,7 +225,4 @@ public class About extends JFrame{
     }
 
 
-
 }
-
-//http://docs.oracle.com/javase/1.5.0/docs/api/javax/swing/BorderFactory.html

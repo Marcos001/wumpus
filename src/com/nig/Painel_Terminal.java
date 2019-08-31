@@ -57,7 +57,7 @@ public class Painel_Terminal {
         painel_esq = new JPanel(); //painel onde sera colocado a scroll
         painel_esq.setLayout(null);
         painel_esq.setBounds(x,y,largura,altura);
-        painel_esq.setBackground(new Color(62,96,207)); //62,96,207 //80,80,80
+        painel_esq.setBackground(new Color(88, 88, 88, 199)); //62,96,207 //80,80,80
         painel_esq.setVisible(true);
 
         scroll = new JScrollPane();
@@ -69,7 +69,7 @@ public class Painel_Terminal {
         painel_redimensionavel = new JPanel();
         painel_redimensionavel.setLayout(new BoxLayout(painel_redimensionavel, BoxLayout.Y_AXIS));
         painel_redimensionavel.setSize(new Dimension(a, l));
-        painel_redimensionavel.setBackground(new Color(221,221,224)); //zinza
+        painel_redimensionavel.setBackground(new Color(211, 211, 211)); //zinza
         scroll.setViewportView(painel_redimensionavel);
 
         scroll.setSize(painel_redimensionavel.getSize());

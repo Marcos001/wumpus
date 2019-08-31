@@ -21,6 +21,9 @@ import java.awt.event.ActionListener;
 
 public class Launcher implements ActionListener {
 
+    private static int ini_x = 50;
+    private static int ini_y = 50;
+    private boolean restar = false;
 
     private void print(String m){
         System.out.println(m);
@@ -121,9 +124,10 @@ public class Launcher implements ActionListener {
 
         DIM = x / 4;
 
-        print("DIM = 4");
+        print("DIM / 4 = "+DIM);
 
-        background_caverna.setBounds(50,50,caverna_x,caverna_y);
+        // painel em que ficara o painel do agente
+        background_caverna.setBounds(ini_x,ini_y, caverna_x, caverna_y);
 
 
     }
@@ -133,9 +137,13 @@ public class Launcher implements ActionListener {
     //funcao para adicionar as coordenadas do personagem a uma lista
     /**--------PAINEL TERMINAL-----------------*/
     private void AddCordenadas_A_Lista(){
+        /**
+         * Painel que contêm os movimentos do agente
+         * */
 
         tb.terminal = new Painel_Terminal();
-        tb.terminal.configurando_terminal(590,50,350,530);
+        //tb.terminal.configurando_terminal(590,50,350,530);
+        tb.terminal.configurando_terminal(caverna_x+100, ini_y+70,350,530);
         contentPainel.add(tb.terminal.painel_esq);
 
     }
@@ -171,6 +179,8 @@ public class Launcher implements ActionListener {
 
         SCALE = 10;
 
+        Font  padrao = new Font("Arial", Font.BOLD,14);
+
 
         //configurações do butão restart
 
@@ -180,7 +190,7 @@ public class Launcher implements ActionListener {
         int largura = 100;
 
         bt_restar = new JButton("Start");
-        bt_restar.setFont(ft.Lucida);
+        bt_restar.setFont(padrao);
         bt_restar.setBounds(x,y,largura,altura);
         bt_restar.setForeground(new Color(255,255,255));
         bt_restar.setBorder(null);
@@ -190,7 +200,7 @@ public class Launcher implements ActionListener {
         int x_p = bt_restar.getWidth() + (SCALE);
 
         bt_pause = new JButton("Pause");
-        bt_pause.setFont(ft.Lucida);
+        bt_pause.setFont(padrao);
         bt_pause.setBounds(x_p,y,largura,altura);
         bt_pause.setForeground(new Color(255,255,255));
         bt_pause.setBackground(new Color(azul[0],azul[1],azul[2]));
@@ -201,7 +211,7 @@ public class Launcher implements ActionListener {
         int x_vm = x_p  + bt_pause.getWidth() + SCALE;
 
         bt_verMatriz = new JButton("Ver Matriz");
-        bt_verMatriz.setFont(ft.Lucida);
+        bt_verMatriz.setFont(padrao);
         bt_verMatriz.setBorder(null);
         bt_verMatriz.setBounds(x_vm,y,largura,altura);
         bt_verMatriz.setForeground(new Color(255,255,255));
@@ -211,7 +221,7 @@ public class Launcher implements ActionListener {
         int x_entrada = x_vm  + bt_verMatriz.getWidth() + SCALE;
 
         bt_entrada = new JButton("Entrada Hack");
-        bt_entrada.setFont(ft.Lucida);
+        bt_entrada.setFont(padrao);
         bt_entrada.setBorder(null);
         bt_entrada.setBounds(x_entrada,y,largura,altura);
         bt_entrada.setForeground(new Color(255,255,255));
@@ -222,7 +232,7 @@ public class Launcher implements ActionListener {
 
 
         bt_about = new JButton("Sobre");
-        bt_about.setFont(ft.Lucida);
+        bt_about.setFont(padrao);
         bt_about.setBounds(x_a,y,largura,altura);
         bt_about.setForeground(new Color(255,255,255));
         bt_about.setBackground(new Color(azul[0],azul[1],azul[2]));
@@ -236,7 +246,7 @@ public class Launcher implements ActionListener {
 
 
         bt_sair = new JButton("Sair");
-        bt_sair.setFont(ft.Lucida);
+        bt_sair.setFont(padrao);
         bt_sair.setBounds(x_s,y,largura,altura);
         bt_sair.setForeground(new Color(255,255,255));
         bt_sair.setBackground(new Color(azul[0],azul[1],azul[2]));
@@ -319,6 +329,7 @@ public class Launcher implements ActionListener {
         LARGURA = x;
         ALTURA = y;
 
+
         print("LARGURA = "+LARGURA+" ALTURA = "+ALTURA);
         print("\n\nVendo tamaho do painel >> ");
 
@@ -346,31 +357,26 @@ public class Launcher implements ActionListener {
 
         print("valor de cx = "+caverna_x+"  && cy = "+caverna_y);
 
-        tb.painel.setBounds(50,80,caverna_x,caverna_y);
+        tb.painel.setBounds(ini_x,ini_y+30, caverna_x, caverna_y);
 
 
         /**--------painel onde estara as medidas de desemenho-------------*/
 
-        md = new MedidaDesempenho(50,40,caverna_x,30);
-
-        contentPainel.add(md.view);
-        contentPainel.add(md.sombra);
-
+        md = new MedidaDesempenho(caverna_x+100,ini_y+30, 350,30);
 
         //azul do vetor
         azul[0] = 62; azul[1] = 96; azul[2] = 207; //62,96,207
-
         azul_claro[0] = 0;
         azul_claro[1] = 191;
         azul_claro[2] = 255;
 
+
+        contentPainel.add(md.view);
+        contentPainel.add(md.sombra);
         contentPainel.add(tb.painel);
 
 
     }
-
-
-
 
 
     //configuraçoes de elementos estaticos na janela
@@ -417,6 +423,16 @@ public class Launcher implements ActionListener {
 
         if (e.getSource() == bt_restar) {
 
+            if (!restar){
+                bt_restar.setText("Restart");
+                restar = true; }
+
+            if (t != null){
+                t.interrupt();
+                t = null;
+                System.out.println("Limpando o Thread anterior");
+            }
+
 
                 print("Instanciando a Thread!");
                 t = new Thread(new Runnable() {
@@ -451,6 +467,7 @@ public class Launcher implements ActionListener {
                // alert("A busca ainda não começou!");
                 print("VALIDAR A INSTANCIA DA THREAD SE FOR NULL");
             }
+
             else{
 
                 if(!cheack_thread){

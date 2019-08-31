@@ -31,6 +31,8 @@ public class Tabuleiro {
 
     MedidaDesempenho mdd;
 
+    private boolean log = false;
+
 
     JLabel l0 = new JLabel();
     JLabel l1 = new JLabel();
@@ -103,7 +105,9 @@ public class Tabuleiro {
     }
 
     private void alert(String m){
-        JOptionPane.showMessageDialog(null,m);
+
+        if (log)
+            JOptionPane.showMessageDialog(null,m);
     }
 
     /**-----------------------------------------------------------**/
@@ -220,6 +224,10 @@ public class Tabuleiro {
 
 
     /**------------------___________________CONTROLLER____________--------------**/
+
+    public void clear_console(){
+
+    }
 
 
     /**
@@ -2451,6 +2459,9 @@ public class Tabuleiro {
         public Tabuleiro(int dim) {
 
             painel.setBorder(createEtchedBorder(new Color(200),new Color(62,96,207)));
+
+            // inserir a imagem aqui para ficar como background
+            painel.setBackground(new Color(115, 132, 207));
 
             tc = new TocarSom();
 

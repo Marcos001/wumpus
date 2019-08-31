@@ -52,6 +52,7 @@ public class MedidaDesempenho {
 
     }
 
+
     private void def_tamanhos(int x,int y, int w, int h){
         p_x = x;
         p_y = y;
@@ -64,8 +65,8 @@ public class MedidaDesempenho {
         sombra.setBackground(new Color(195,195,195));
         sombra.setBounds(p_x,(p_y+heigth),width,(heigth * 10 / 100));
 
-        view.setBounds(p_x,p_y,width,heigth);
-        view.setBackground(new Color(62,96,207));
+        view.setBounds(p_x, p_y, width,heigth);
+        view.setBackground(new Color(74, 74, 78));
     }
 
     private void _init_(){
@@ -78,9 +79,9 @@ public class MedidaDesempenho {
 
     }
 
+
+
     public MedidaDesempenho(int x,int y, int w, int h){
-
-
 
         _init_();
 
